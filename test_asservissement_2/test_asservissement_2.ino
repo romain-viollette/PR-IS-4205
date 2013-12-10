@@ -6,11 +6,11 @@
 //   bobbyorr (nice connection diagram) http://forum.pololu.com/viewtopic.php?f=15&t=1923
 
 
-#define InA1            10                      // INA motor pin
+#define InA1            8                      // INA motor pin
 #define InB1            11                      // INB motor pin 
-#define PWM1            6                       // PWM motor pin
-#define encodPinA1      3                       // encoder A pin
-#define encodPinB1      8                       // encoder B pin
+#define PWM1            9                       // PWM motor pin
+#define encodPinA1      5                       // encoder A pin
+#define encodPinB1      4                       // encoder B pin
 #define Vpin            0                       // battery monitoring analog pin
 #define Apin            1                       // motor current monitoring analog pin
 
@@ -95,7 +95,7 @@ void printMotorInfo()  {                                                      //
 }
 
 void rencoder()  {                                    // pulse and direction, direct port reading to save cycles
-  if (PINB & 0b00000001)    count++;                // if(digitalRead(encodPinB1)==HIGH)   count ++;
+  if (PIND & (1<<4))    count++;                // if(digitalRead(encodPinB1)==HIGH)   count ++;
   else                      count--;                // if (digitalRead(encodPinB1)==LOW)   count --;
 }
 
